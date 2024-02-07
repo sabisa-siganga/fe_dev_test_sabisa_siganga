@@ -6,6 +6,8 @@ import React from 'react';
 import { Col, Row } from 'react-bootstrap';
 import styles from './styles.module.scss';
 import CommentBox from '@/app/components/CommentBox/CommentBox';
+import { Comment } from '@/app/interfaces/post';
+import { FaRegHeart } from 'react-icons/fa';
 
 const PostDetails = () => {
 	const [post, setPost] = React.useState({
@@ -15,23 +17,31 @@ const PostDetails = () => {
 		body: 'Brook was found killed and her killers have left the country, Police are still in search of the killers',
 	});
 
-	const [comments, setComments] = React.useState([
-		// {
-		// 	comment:
-		// 		'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maxime rem repellendus temporibus ut eaque perspiciatis saepe quis similique consectetur nesciunt, incidunt distinctio qui harum iusto quo sed, magni totam accusantium.',
-		// 	author: 'Gary Mariner',
-		// },
-		// {
-		// 	comment:
-		// 		'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maxime rem repellendus temporibus ut eaque perspiciatis saepe quis similique consectetur nesciunt, incidunt distinctio qui harum iusto quo sed, magni totam accusantium.',
-		// 	author: 'Gary Mariner',
-		// },
-		// {
-		// 	comment:
-		// 		'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maxime rem repellendus temporibus ut eaque perspiciatis saepe quis similique consectetur nesciunt, incidunt distinctio qui harum iusto quo sed, magni totam accusantium.',
-		// 	author: 'Gary Mariner',
-		// },
+	const [comments, setComments] = React.useState<Comment[]>([
+		{
+			comment:
+				'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maxime rem repellendus temporibus ut eaque perspiciatis saepe quis similique consectetur nesciunt, incidunt distinctio qui harum iusto quo sed, magni totam accusantium.',
+			author: 'Gary Mariner',
+		},
+		{
+			comment:
+				'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maxime rem repellendus temporibus ut eaque perspiciatis saepe quis similique consectetur nesciunt, incidunt distinctio qui harum iusto quo sed, magni totam accusantium.',
+			author: 'Gary Mariner',
+		},
+		{
+			comment:
+				'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maxime rem repellendus temporibus ut eaque perspiciatis saepe quis similique consectetur nesciunt, incidunt distinctio qui harum iusto quo sed, magni totam accusantium.',
+			author: 'Gary Mariner',
+		},
 	]);
+
+	/**
+	 * Function to add a comment to the list of comments
+	 */
+	const addComment = (comment: Comment) => {
+		// adding the comment at the beginning of the list
+		setComments([comment, ...comments]);
+	};
 
 	return (
 		<div className='px-5'>
@@ -47,7 +57,15 @@ const PostDetails = () => {
 						</div>
 						<div className='py-5'>
 							<div className={styles.author}>
-								<span>Author:</span> {post.author}
+								<div>
+									<span className={styles.authorTitle}>
+										Author:
+									</span>{' '}
+									{post.author}
+								</div>
+								<button type='button'>
+									<FaRegHeart color='#e54848' size='22px' />
+								</button>
 							</div>
 							<div className={styles.textBody}>{post.body}</div>
 							<div>
@@ -87,7 +105,7 @@ const PostDetails = () => {
 								</div>
 							</div>
 
-							<CommentBox />
+							<CommentBox onNewComment={addComment} />
 						</div>
 					</div>
 				</Col>

@@ -1,0 +1,22 @@
+.commentBox {
+	border-top: 1px solid #dad7d7;
+	padding-top: 30px;
+
+	.commentInputLabel {
+		font-size: 14px;
+	}
+
+	.commentInput {
+		box-shadow: none;
+		min-height: 150px;
+		max-height: 220px;
+		font-size: 14px;
+		box-shadow: 0px 1px 8px 1px rgb(0 0 0 / 5%);
+		border-color: #f1f1f1;
+	}
+
+	.commentBtn {
+		padding-top: 22px;
+		text-align: right;
+	}
+}

@@ -3,3 +3,8 @@ export interface PostInterface {
 	author: string;
 	id: string;
 }
+
+export interface Comment {
+	comment: string;
+	author: string;
+}

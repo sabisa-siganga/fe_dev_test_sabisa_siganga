@@ -22,8 +22,8 @@ export default function Post(props: Props) {
 				<div className={styles.title}>{title}</div>
 				<div className={styles.author}>{author}</div>
 			</div>
-			<div className='favIcon py-4 px-4'>
-				<FaRegHeart color='#e54848' size="22px" />
+			<div className='py-4 px-4'>
+				<FaRegHeart color='#e54848' size='22px' />
 			</div>
 		</Link>
 	);
