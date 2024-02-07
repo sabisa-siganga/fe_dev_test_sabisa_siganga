@@ -6,7 +6,13 @@
 	margin: 0 auto;
 	border-radius: 5px;
 	box-shadow: 1px 1px 10px 1px rgb(0 0 0 / 12%);
-	text-decoration: none;
+	position: relative;
+	align-items: center;
+
+	a {
+		flex: 1 1;
+		text-decoration: none;
+	}
 
 	.postInfo {
 		padding: 20px;
@@ -20,6 +26,16 @@
 		.author {
 			font-size: 14px;
 			color: #333;
+		}
+	}
+
+	.favoriteBtn {
+		position: absolute;
+		right: 22px;
+
+		button {
+			height: 50px;
+			width: 50px;
 		}
 	}
 }

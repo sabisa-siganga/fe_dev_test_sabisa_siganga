@@ -6,32 +6,33 @@ import React from 'react';
 import { Col, Row } from 'react-bootstrap';
 import styles from './styles.module.scss';
 import CommentBox from '@/app/components/CommentBox/CommentBox';
-import { Comment } from '@/app/interfaces/post';
+import { Comment, PostInterface } from '@/app/interfaces/post';
 import { FaRegHeart } from 'react-icons/fa';
+import FavButton from '@/app/components/FavButton/FavButton';
 
 const PostDetails = () => {
-	const [post, setPost] = React.useState({
-		id: 1,
+	const [post, setPost] = React.useState<PostInterface>({
 		title: 'this is my title',
-		author: 'Emily Jones',
 		body: 'Brook was found killed and her killers have left the country, Police are still in search of the killers',
+		authorId: 1,
+		authorName: 'Emily Jones',
 	});
 
 	const [comments, setComments] = React.useState<Comment[]>([
 		{
 			comment:
 				'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maxime rem repellendus temporibus ut eaque perspiciatis saepe quis similique consectetur nesciunt, incidunt distinctio qui harum iusto quo sed, magni totam accusantium.',
-			author: 'Gary Mariner',
+			authorName: 'Gary Mariner',
 		},
 		{
 			comment:
 				'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maxime rem repellendus temporibus ut eaque perspiciatis saepe quis similique consectetur nesciunt, incidunt distinctio qui harum iusto quo sed, magni totam accusantium.',
-			author: 'Gary Mariner',
+			authorName: 'Gary Mariner',
 		},
 		{
 			comment:
 				'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maxime rem repellendus temporibus ut eaque perspiciatis saepe quis similique consectetur nesciunt, incidunt distinctio qui harum iusto quo sed, magni totam accusantium.',
-			author: 'Gary Mariner',
+			authorName: 'Gary Mariner',
 		},
 	]);
 
@@ -61,11 +62,9 @@ const PostDetails = () => {
 									<span className={styles.authorTitle}>
 										Author:
 									</span>{' '}
-									{post.author}
+									{post.authorName}
 								</div>
-								<button type='button'>
-									<FaRegHeart color='#e54848' size='22px' />
-								</button>
+								<FavButton post={post} />
 							</div>
 							<div className={styles.textBody}>{post.body}</div>
 							<div>
@@ -84,7 +83,7 @@ const PostDetails = () => {
 														styles.commentAuthor
 													}
 												>
-													{comment.author}
+													{comment.authorName}
 												</div>
 												<div
 													className={

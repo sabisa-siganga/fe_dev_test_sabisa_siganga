@@ -7,15 +7,15 @@ import Input from '../Input/Input';
 import { PostInterface } from '@/app/interfaces/post';
 
 // Dummy data for posts
-const DUMMY_POSTS = [
+const DUMMY_POSTS: PostInterface[] = [
 	{
-		id: '1',
-		author: 'Remy Jules',
+		authorId: 1,
+		authorName: 'Remy Jules',
 		title: 'To the moon and beyond',
 	},
 	{
-		id: '2',
-		author: 'Remy',
+		authorId: 2,
+		authorName: 'Remy',
 		title: 'To the moon and beyond',
 	},
 ];
@@ -65,7 +65,7 @@ const Posts = () => {
 		const filteredPosts = [...postsRef.current].filter(
 			(post) =>
 				post.title.toLowerCase().includes(search.toLowerCase()) ||
-				post.author.toLowerCase().includes(search.toLowerCase())
+				post.authorName.toLowerCase().includes(search.toLowerCase())
 		);
 
 		setPosts(filteredPosts);
@@ -84,10 +84,10 @@ const Posts = () => {
 				{/* Render posts */}
 				{posts.map((post) => (
 					<Post
-						key={post.id}
-						author={post.author}
+						key={post.authorId}
+						authorName={post.authorName}
 						title={post.title}
-						id={post.id}
+						authorId={post.authorId}
 					/>
 				))}
 

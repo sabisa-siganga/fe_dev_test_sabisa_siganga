@@ -26,7 +26,7 @@ export default function CommentBox(props: input) {
 
 		onNewComment({
 			comment: input,
-			author: 'Anonymous',
+			authorName: 'Anonymous',
 		});
 
 		// clear the input

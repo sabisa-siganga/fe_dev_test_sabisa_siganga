@@ -1,10 +1,11 @@
 export interface PostInterface {
 	title: string;
-	author: string;
-	id: string;
+	authorName: string;
+	authorId: number;
+	body?: string;
 }
 
 export interface Comment {
 	comment: string;
-	author: string;
+	authorName: string;
 }
