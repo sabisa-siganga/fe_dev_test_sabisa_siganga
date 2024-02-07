@@ -1,14 +1,15 @@
+// styling the posts
 .posts {
   .homeTitle {
     text-align: center;
   }
-}
-
-.postContainer {
-  max-width: 900px;
-  background: #f3f2f2;
-  border: 1px solid #fff;
-  display: block;
-  margin: 0 auto;
-  border-radius: 5px;
+  // styling the post container
+  .postContainer {
+    max-width: 900px;
+    background: #f1eded;
+    border: 1px solid #f1eded;
+    display: block;
+    margin: 0 auto;
+    border-radius: 5px;
+  }
 }
