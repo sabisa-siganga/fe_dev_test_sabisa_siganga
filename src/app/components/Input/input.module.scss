@@ -1,0 +1,11 @@
+.input {
+	border: 1px solid #908f8f;
+	font-size: 14px;
+	max-width: 360px;
+	background-color: #fff;
+	margin: 0 auto;
+
+	&:focus {
+		box-shadow: none;
+	}
+}
