@@ -17,7 +17,7 @@ export default function Post(props: Props) {
 	// Rendering a post
 	return (
 		<div className={`${styles.post} px-3 py-3 mb-4`}>
-			<Link href={`post/${authorId}`}>
+			<Link href={`/post/${authorId}`}>
 				<div className={styles.postInfo}>
 					<div className={styles.title}>{title}</div>
 					<div className={styles.author}>{authorName}</div>

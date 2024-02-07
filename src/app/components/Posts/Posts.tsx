@@ -5,20 +5,7 @@ import Post from '../Post/Post';
 import styles from './posts.module.scss';
 import Input from '../Input/Input';
 import { PostInterface } from '@/app/interfaces/post';
-
-// Dummy data for posts
-const DUMMY_POSTS: PostInterface[] = [
-	{
-		authorId: 1,
-		authorName: 'Remy Jules',
-		title: 'To the moon and beyond',
-	},
-	{
-		authorId: 2,
-		authorName: 'Remy',
-		title: 'To the moon and beyond',
-	},
-];
+import { DUMMY_POSTS } from '@/app/dumy-data';
 
 const Posts = () => {
 	const [posts, setPosts] = useState<PostInterface[]>([]);
@@ -32,8 +19,12 @@ const Posts = () => {
 	 */
 	const fetchPosts = async () => {
 		try {
+			// Fetch posts from the server using the fetch API
+			const response = await fetch('http://localhost:3000/api/posts');
+			const posts = await response.json();
+
 			// For now, using dummy data instead of fetching from the server
-			const posts = DUMMY_POSTS;
+			// const posts = DUMMY_POSTS;
 
 			setPosts(posts);
 
@@ -61,7 +52,7 @@ const Posts = () => {
 
 		setIsSearching(true);
 
-		// Filter posts based on search query
+		// Creating a copy of data in postsRef.current and filter posts based on search query either by name or title
 		const filteredPosts = [...postsRef.current].filter(
 			(post) =>
 				post.title.toLowerCase().includes(search.toLowerCase()) ||
@@ -85,7 +76,9 @@ const Posts = () => {
 				{posts.map((post) => (
 					<Post
 						key={post.authorId}
+						id={post.id}
 						authorName={post.authorName}
+						body={post.body}
 						title={post.title}
 						authorId={post.authorId}
 					/>

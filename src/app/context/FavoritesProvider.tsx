@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { PostInterface } from '../interfaces/post';
+import { useParams } from 'next/navigation';
 
 // Define the type for the context value
 interface FavoritesContextType {
@@ -26,15 +27,23 @@ interface FavoritesProviderProps {
 // Provider component to wrap your application
 export const FavoritesProvider = (props: FavoritesProviderProps) => {
 	const { children } = props;
+	const params = useParams();
 
 	const [favorites, setFavorites] = useState<PostInterface[]>([]);
 
 	const addFavorite = (favorite: PostInterface) => {
 		console.log('Adding favorite', favorite);
 
-		setFavorites((prevFavorites) => [...prevFavorites, favorite]);
+		// Check if the favorite already exists
+		const exists = favorites.some((fav) => fav.id === favorite.id);
 
-		// Update the local storage and add the new favorite at the beginning of the list
+		if (exists) {
+			return;
+		}
+
+		// Update the local storage and state to add the new favorite at the beginning of the list
+		setFavorites((prevFavorites) => [favorite, ...prevFavorites]);
+
 		localStorage.setItem(
 			'favorites',
 			JSON.stringify([favorite, ...favorites])
@@ -48,15 +57,13 @@ export const FavoritesProvider = (props: FavoritesProviderProps) => {
 		if (favorites) {
 			setFavorites(JSON.parse(favorites));
 		}
-	}, []);
+	}, [params]);
 
 	/**
 	 * Remove from favorites and update the local storage and state
 	 */
-	const removeFavorite = (authorId: number) => {
-		const updatedList = favorites.filter(
-			(fav) => fav.authorId !== authorId
-		);
+	const removeFavorite = (postId: number) => {
+		const updatedList = favorites.filter((fav) => fav.id !== postId);
 
 		// Update the state
 		setFavorites(updatedList);

@@ -16,14 +16,14 @@ const Favorites = () => {
 			<div className={styles.list}>
 				{favorites.map((fav, index) => (
 					<div
-						key={`fav-${fav.authorId}-${index}`}
+						key={`fav-${fav.id}-${index}`}
 						className={styles.favorite}
 					>
 						<div className={styles.author}>
 							{fav.authorName}
 							<button
 								type='button'
-								onClick={() => removeFavorite(fav.authorId)}
+								onClick={() => removeFavorite(fav.id)}
 								title='Remove from favorites'
 							>
 								<FaTrash color='#e54848' size='15px' />
