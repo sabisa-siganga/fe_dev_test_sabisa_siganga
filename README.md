@@ -1,6 +1,6 @@
 ## Posts Project
 
-This project is a web application built with Next.js, React, Sass, React Bootstrap, and React Context. It provides functionality for viewing, filtering, and interacting with posts, as well as managing favorites.
+This project is a web application built with Next.js, React, Typescript, Sass, React Bootstrap, and React Context. It provides functionality for viewing, filtering, and interacting with posts, as well as managing favorites.
 
 ## Thought Process
 
