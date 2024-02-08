@@ -15,6 +15,7 @@ The goal is to build a web application that allows users to view and interact wi
 - **Sass**: Selected for its enhanced CSS features like variables and mixins, making styling more maintainable and organized.
 - **React Bootstrap**: Utilized for its ready-to-use UI components, enabling rapid development and ensuring responsiveness.
 - **React Context**: Adopted for state management, allowing data to be shared across components without the need for prop drilling.
+- **TypeScript**: Used for static typing, improving code maintainability and catch errors during development.
 
 ### Design and Architecture
 
@@ -29,8 +30,7 @@ The goal is to build a web application that allows users to view and interact wi
 - **Component-Based Architecture**: Adopted to break down the application into reusable and manageable components, promoting code reuse and maintainability.
 - **Client-Side Filtering**: Implemented to enhance performance by filtering posts on the client side, reducing server load and improving user experience.
 - **API Integration**: Integrated backend endpoints to fetch post data and user profiles, ensuring seamless interaction with external resources.
-- **State Management**: Utilized React Context to manage Favourites state, ensuring data consistency and simplifying state sharing across components.
-- **Responsive Design**: Ensured the application is responsive across various devices, providing a consistent user experience regardless of screen size.
+- **State Management**: Utilized React Context to manage application state, ensuring data consistency and simplifying state sharing across components.
 
 ### Functionality
 
@@ -49,6 +49,7 @@ The goal is to build a web application that allows users to view and interact wi
 - **Sass**: CSS preprocessor for styling.
 - **React Bootstrap**: Library for building responsive and mobile-first websites using React components.
 - **React Context**: Provides a way to share data between components without having to explicitly pass props through every level of the component tree.
+  **TypeScript**: Used for static typing, improving code maintainability and catching errors during development.
 
 ### Installation
 
