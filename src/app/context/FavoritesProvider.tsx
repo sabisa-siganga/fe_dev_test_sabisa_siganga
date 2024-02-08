@@ -24,7 +24,9 @@ interface FavoritesProviderProps {
   children: React.ReactNode; // Children components to be wrapped by the provider
 }
 
-// Provider component to wrap your application
+/**
+ * Provider component to wrap your application
+ */
 export const FavoritesProvider = (props: FavoritesProviderProps) => {
   const { children } = props;
   const params = useParams();
@@ -32,7 +34,9 @@ export const FavoritesProvider = (props: FavoritesProviderProps) => {
   // State for storing favorite posts
   const [favorites, setFavorites] = useState<PostInterface[]>([]);
 
-  // Function to add a post to favorites
+  /**
+   * Function to add a post to favorites
+   */
   const addFavorite = (favorite: PostInterface) => {
     console.log("Adding favorite", favorite);
 

@@ -44,13 +44,17 @@ export default function CommentBox(props: input) {
     fetchProfile();
   }, []); // Empty dependency array ensures this effect runs only once on mount
 
-  // Event handler for input change
+  /**
+   * Event handler for input change
+   */
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     // Set the input state with the value from the event
     setInput(e.target.value);
   };
 
-  // Event handler for form submission
+  /**
+   *  Event handler for form submission
+   */
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     // Prevent default form submission behavior
     e.preventDefault();
